@@ -1,0 +1,22 @@
+{
+  "name": "not-in-the-bible",
+  "version": "1.0.0",
+  "description": "Words not in the bible",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mchangrh/not-in-the-bible.git"
+  },
+  "author": "Michael Chang <michael@mchang.name>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mchangrh/not-in-the-bible/issues"
+  },
+  "homepage": "https://github.com/mchangrh/not-in-the-bible#readme",
+  "dependencies": {
+    "lz-string": "^1.4.4"
+  }
+}

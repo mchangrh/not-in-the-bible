@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Are these words in the Bible</title>
+    <style>
+      @import url("style.css");
+    </style>
+  </head>
+  <body>  
+    <div class="hero align">
+      <textarea id="text" value=""></textarea>
+      <button onclick="calculate()">Are these words in the bible?</button>
+      <br>
+      <div id="result" class="align"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/lz-string@1.4.4/libs/lz-string.min.js"></script>
+    <script>
+      document.getElementById("text").addEventListener("keydown", function(e) {
+        event.stopPropagation()
+        if (event.key !== "Enter") return
+        return calculate()
+      })
+      let compressed, bibleStrings
+      async function setup() {
+        compressed = await fetch("https://cdn.jsdelivr.net/gh/mchangrh/not-in-the-bible/node/bible.lz4").then(r => r.text())
+        bibleStrings = JSON.parse(LZString.decompressFromBase64(compressed))
+      }
+      setup()
+      function calculate() {
+        const original = document.getElementById("text").value.toLowerCase().split(' ').filter(w => w.length > 0)
+        const inBible = original.filter(word => bibleStrings.includes(word))
+        const result = {
+          original: original.length,
+          inBible: inBible.length,
+          percent: inBible.length / original.length,
+          bibleWords: inBible
+        }
+        let string;
+        if (result.percent == 1) {
+          string = "All of these words are in the Bible"
+        } else if (result.percent === 0) {
+          string = "None of these words are in the Bible"
+        } else {
+          string = `${result.inBible}/${result.original} of these words are in the Bible <br> ${result.bibleWords.join(', ')}`
+        }
+        document.getElementById("result").innerHTML = string
+      }
+    </script>
+  </body>
+</html>

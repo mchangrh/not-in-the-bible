@@ -2,9 +2,10 @@
   "name": "not-in-the-bible",
   "version": "1.0.0",
   "description": "Words not in the bible",
-  "main": "src/index.js",
+  "main": "dist/worker.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "worker": "uglifyjs worker/worker.js worker/biblestrings.js -o dist/worker.js -c"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,8 @@
   "homepage": "https://github.com/mchangrh/not-in-the-bible#readme",
   "dependencies": {
     "lz-string": "^1.4.4"
+  },
+  "devDependencies": {
+    "uglify-js": "^3.15.5"
   }
 }

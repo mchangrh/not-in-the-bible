@@ -1,0 +1,28 @@
+body {
+  background: #111;
+  color: #ddd;
+  font-size: 1.6em;
+  font-family: monospace;
+}
+div, pre, textarea, button {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+textarea {
+  width: 100%;
+  text-align: left;
+}
+textarea, button {
+  background: inherit;
+  border: 1px solid #ccc;
+}
+.hero {
+  min-height: 98vh;
+}
+.align {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

@@ -1,0 +1,10 @@
+name = "bible"
+type = "javascript"
+account_id = "d5ccf1d783709bbdc23fc29786f38736"
+workers_dev = true
+compatibility_date = "2022-05-23"
+
+[build]
+command = "npm install && npm run worker"
+[build.upload]
+format = "service-worker"
